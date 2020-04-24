@@ -7,6 +7,7 @@ namespace ContainerVervoerClassLibrary.Models
     {
         public const int MaxWeight = 30000;
         public const int MinWeight = 4000;
+        public const int MaxWeightAbove = 120000;
 
         public Container(int weight, Type type)
         {
