@@ -31,7 +31,7 @@ namespace ContainerVervoerClassLibrary.Models
         {
             int maximumWeightBottomRow = Dimensions.Length * Dimensions.Width * Container.MaxWeight;
             int maximumWeightAboveBottomRow = Math.Min(
-                Dimensions.Length * Dimensions.Width * Container.MaxWeight * Dimensions.Heigth - 1,
+                Dimensions.Length * Dimensions.Width * Container.MaxWeight * (Dimensions.Heigth - 1),
                 Dimensions.Length * Dimensions.Width * Container.MaxWeightAbove);
             int maximumWeight = maximumWeightAboveBottomRow + maximumWeightBottomRow;
             return maximumWeight;
