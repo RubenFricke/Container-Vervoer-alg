@@ -33,5 +33,39 @@ namespace ContainerVervoerTests
             // Assert
             Assert.Throws<ArgumentException>(() => filler.SortContainers(unsortedContainers));
         }
+
+        [Test]
+        public void CalculateMaxWeight_ReturnsCorrectWeight()
+        {
+            // Arrange
+            int shipLenght = 3;
+            int shipWidht = 4;
+            int shipHeight = 20;
+
+            Ship ship = new Ship(shipLenght, shipWidht, shipHeight);
+            
+            // Act
+            int maxWeight = ship.MaximumWeight;
+
+            // Assert
+            Assert.AreEqual(1800000,maxWeight);
+        }
+
+        [Test]
+        public void CalculateMinWeight_ReturnsCorrectWeight()
+        {
+            // Arrange
+            int shipLenght = 3;
+            int shipWidht = 4;
+            int shipHeight = 20;
+
+            Ship ship = new Ship(shipLenght, shipWidht, shipHeight);
+
+            // Act
+            int minWeight = ship.MinimumWeight;
+
+            // Assert
+            Assert.AreEqual(900000, minWeight);
+        }
     }
 }
