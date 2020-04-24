@@ -64,7 +64,7 @@ namespace ContainerVervoerClassLibrary.Models
                             if (width < Dimensions.Width / 2)
                             {
                                 weightLeft += Containers[length, width, height].Weight;
-                            }else if(width >= Dimensions.Width && Dimensions.Width % 2 == 0 || width > Dimensions.Width / 2)
+                            }else if(width >= Dimensions.Width - 1 && Dimensions.Width % 2 == 0 || width > Dimensions.Width / 2)
                             {
                                 weigthRight += Containers[length, width, height].Weight;
                             }
