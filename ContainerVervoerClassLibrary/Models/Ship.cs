@@ -29,7 +29,11 @@ namespace ContainerVervoerClassLibrary.Models
 
         private int calculateMaximumWeight()
         {
-            int maximumWeight = Dimensions.Length * Dimensions.Width * Dimensions.Heigth * Container.MaxWeight;
+            int maximumWeightBottomRow = Dimensions.Length * Dimensions.Width * Container.MaxWeight;
+            int maximumWeightAboveBottomRow = Math.Min(
+                Dimensions.Length * Dimensions.Width * Container.MaxWeight * Dimensions.Heigth - 1,
+                Dimensions.Length * Dimensions.Width * Container.MaxWeightAbove);
+            int maximumWeight = maximumWeightAboveBottomRow + maximumWeightBottomRow;
             return maximumWeight;
         }
 
@@ -113,7 +117,7 @@ namespace ContainerVervoerClassLibrary.Models
             }
 
             return heigth==0 ||
-                   containersBelow.Sum(c => c.Weight) + container.Weight <= 120000 && 
+                   containersBelow.Sum(c => c.Weight) + container.Weight <= Container.MaxWeightAbove && 
                    containersBelow.FirstOrDefault(c => c.Type == Type.Valuable) == null;
         }
     }
